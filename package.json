@@ -1,0 +1,15 @@
+{
+  "name": "git-beyond-the-basics",
+  "private": true,
+  "scripts": {
+    "start": "npm run dev",
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.37.1",
+    "@slidev/theme-default": "*",
+    "@slidev/theme-seriph": "*"
+  }
+}
