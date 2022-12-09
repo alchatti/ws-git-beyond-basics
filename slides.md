@@ -1,51 +1,59 @@
 ---
-# try also 'default' to start simple
-theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
-# apply any windi css classes to the current slide
+theme: default
+fonts:
+  sans: Roboto
+  serif: Roboto Slab
+  mono: Fira Code
+  local: Fira Code, Roboto, Roboto Slab
 class: 'text-center'
-# https://sli.dev/custom/highlighters.html
 highlighter: shiki
-# show line numbers in code blocks
 lineNumbers: false
-# some information about the slides, markdown enabled
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
+  ## Git Beyond the Basics
 
-  Learn more at [Sli.dev](https://sli.dev)
-# persist drawings in exports and build
+  Learn about Git, commands, and techniques to manage your workflows.
+
+title: Git Beyond the Basics
+author: Majed Al-Chatti
+authorUrl: alchatti.com
+background: ./images/yancy-min-842ofHC6MaI-unsplash.jpg
 drawings:
   persist: false
-# use UnoCSS
 css: unocss
+hideInToc: true
 ---
 
-# Welcome to Slidev
+# Git Beyond the Basics
 
-Presentation slides for developers
-
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
-  </span>
+<div>
+  Learn about Git, commands, and techniques to manage your workflows. This workshop will cover the basics of Git, mid to advanced concepts with best practices. How to work with mono & muti repo projects.
 </div>
 
 <div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
-    class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
+  Majed Al-Chatti
 </div>
 
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
 -->
+
+---
+---
+# Table of Contents
+
+<Toc />
+
+<style>
+h1 {
+  background-color: #2B90B6;
+  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
 
 ---
 
