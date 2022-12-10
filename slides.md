@@ -25,9 +25,6 @@ hideInToc: true
 
 # Git Beyond the Basics <mdi-Git />
 
-<div>
-  Learn about Git, commands, and techniques to manage your workflows. This workshop will cover the basics of Git, mid to advanced concepts with best practices. How to work with mono & muti repo projects.
-</div>
 
 <div class="abs-br m-6 flex gap-2">
   Majed Al-Chatti
@@ -41,23 +38,28 @@ The last comment block of each slide will be treated as slide notes. It will be 
 hideInToc: true
 ---
 
-# Bio
 
-## Majed Al-Chatti
+# Majed Al-Chatti
 
+<br/>
+
+<p style="width:75%;margin-top:-1em">
 Solution Architect for Web & Mobile, experienced in Web Security, DevOps, and Digital Marketing. Branching into VR and Machine Learning.
+</p>
+
+<br/>
 
 - 👔 **Web Architect** at American University of Sharjah.
-- ⌛ **15+ years** of experience in software development.
-- 🧑‍💻 **Technologies** .Net, Node.js, Drupal, Docker, CI/DD, Linux, Windows, SQL, and more.
-- 🤹 **Over 20** Apps, and website built and deployed.
-- 📰 **GWEB** & **GWAPT** certification.
-- <mdi-Git /> **Github Enterprise** & **Azure DevOps** team manager.
+- ⌛ **15+ years** in software development.
+- 🧑‍💻 **Tech** .Net, Node.js, Drupal, Docker, CI/CD, Linux, Windows, SQL, and more.
+- <mdi-Git /> **GitHub Enterprise** & **Azure DevOps** team and org manager.
 
 <br>
 <br>
 
-Socials @ [alchatti.com](https://alchatt.com)
+[<mdi-github /> alchatti](https://github.com/alchatti/) | [<mdi-linkedin /> alchatti](https://www.linkedin.com/in/alchatti/) | [<mdi-twitter />  alchatti](https://twitter.com/alchatti) | [<mdi-web /> alchatti.com](https://alchatti.com)
+
+<img style="position:fixed; top:4em; right:2em; border-radius:50%" src="https://avatars.githubusercontent.com/u/9209306?v=4"/>
 
 <!--
 You can have `style` tag in markdown to override the style for the current page.
@@ -99,6 +101,27 @@ sequenceDiagram
   Remote Repo -->> Local Repo: git fetch / pull
 ```
 
+
+---
+
+# git init
+
+Create an empty Git repository or reinitialize an existing one
+
+```sh
+# inside a directory
+git init
+# create a new directory and initialize it
+git init $directory
+# Initialize with a default branch name
+git inti -b $branchName
+```
+
+<br/>
+<br/>
+
+> .git directory with subdirectories for __objects__, __refs/heads__, __refs/tags__, and template files.
+
 ---
 
 # git config
@@ -124,25 +147,11 @@ git config --global init.defaultBranch main
 git config --global -e
 ```
 
----
-
-# git init
-
-Create an empty Git repository or reinitialize an existing one
+<br/>
 
 ```sh
-# inside a directory
-git init
-# create a new directory and initialize it
-git init $directory
-# Initialize with a default branch name
-git inti -b $branchName
+git config user.email "$email"
 ```
-
-<br/>
-<br/>
-
-> .git directory with subdirectories for __objects__, __refs/heads__, __refs/tags__, and template files.
 
 ---
 
@@ -386,7 +395,7 @@ git checkout $tagName
 
 ---
 
-# Azure Pull Requests with Rebase 1/2
+# Pull Strategies 1/2
 
 ### Merge (no fast-forward)
 
@@ -402,7 +411,7 @@ Take each individual commit and cherry-pick them onto the master branch. Running
 
 ---
 
-# Azure Pull Requests with Rebase 2/2
+# Pull Strategies 2/2
 
 ### Squash commit
 
@@ -562,6 +571,13 @@ git remote set-url $remoteName $remoteUrl
 
 ---
 
+# GitHub Workflow
+
+
+<img src="/images/gitflow-fork-and-pull-Dale-Scott.jpg" alt="Git Workflow" style="max-height:80%; margin:auto;margin-top:2em">
+
+---
+
 # git push
 
 Update remote refs along with associated objects
@@ -582,7 +598,7 @@ git push $remoteName $tagName
 git push $remoteName :refs/tags/$tagName
 ```
 
-⚠️⚠️⚠️ **Becareful with force push** ⚠️⚠️⚠️
+⚠️⚠️⚠️ **Careful with force push** ⚠️⚠️⚠️
 ```sh
 # Force push to overwrite remote branch
 git push $remoteName --force-with-lease
@@ -611,7 +627,7 @@ git clone --mirror $remoteUrl
 
 # git fetch
 
-Update local refs along with associated objects
+Download commits & refs without update
 
 ```sh
 # Fetch a remote
@@ -622,6 +638,19 @@ git fetch -p $remoteName
 git fetch --all
 # fetch and updated other branche
 git fetch $remoteName $branchName:$branchName
+```
+
+<br/>
+
+# git pull
+
+Download commits & refs and merge, fetch then merge.
+
+```sh
+# Pull from a remote
+git pull $remoteName
+# Pull from a remote and rebase
+git pull --rebase $remoteName
 ```
 
 ---
@@ -723,8 +752,8 @@ git rebase --continue
 
 <br/>
 
-1. Create an empty repo on github.
-1. Create an empty repo on gitlab.
+1. Create an empty repo on GitHub.
+1. Create an empty repo on GitLab.
 1. On local repo add the remotes.
 
 <br/>
@@ -764,6 +793,7 @@ image: ./images/yancy-min-842ofHC6MaI-unsplash.jpg
 - [Git Documentation](https://git-scm.com/docs)
 - [Conventional Commits](https://www.conventionalcommits.org)
 - [Pull Requests with Rebase, Edward Thomson](https://devblogs.microsoft.com/devops/pull-requests-with-rebase/)
+- [Using Gitflow with the GitHub Fork & Pull Model, Dale Scott](https://www.dalescott.net/using-gitflow-with-githubs-fork-pull-model/)
 - [Git-it](http://jlord.us/git-it/)
 - [Slidev](https://sli.dev)
 - [@slidev/theme-default](https://github.com/slidevjs/themes/tree/main/packages/theme-default)
