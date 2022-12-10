@@ -41,22 +41,23 @@ The last comment block of each slide will be treated as slide notes. It will be 
 hideInToc: true
 ---
 
-# About Me
+# Bio
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+## Majed Al-Chatti
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
+Solution Architect for Web & Mobile, experienced in Web Security, DevOps, and Digital Marketing. Branching into VR and Machine Learning.
+
+- 👔 **Web Architect** at American University of Sharjah.
+- ⌛ **15+ years** of experience in software development.
+- 🧑‍💻 **Technologies** .Net, Node.js, Drupal, Docker, CI/DD, Linux, Windows, SQL, and more.
+- 🤹 **Over 20** Apps, and website built and deployed.
+- 📰 **GWEB** & **GWAPT** certification.
+- <mdi-Git /> **Github Enterprise** & **Azure DevOps** team manager.
 
 <br>
 <br>
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+Socials @ [alchatti.com](https://alchatt.com)
 
 <!--
 You can have `style` tag in markdown to override the style for the current page.
@@ -86,19 +87,6 @@ hideInToc: true
 
 <Toc columns="3" />
 
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
-
 ---
 
 # Git Workflow
@@ -113,41 +101,27 @@ sequenceDiagram
 
 ---
 
-# Git Branching
+# git config
 
-```mermaid
-%%{init: { 'logLevel': 'debug', 'theme': 'default' , 'themeVariables': {
-        'git3': 'red'
-  } } }%%
-    gitGraph
-      commit id: "1"
-      commit id: "2"
-      branch featureA
-      checkout featureA
-      commit id: "3"
-      checkout main
-      commit id: "4"
-      checkout featureA
-      branch featureB
-      checkout featureB
-      commit id: "5"
-      checkout main
-      commit id: "6"
-      checkout featureA
-      commit id: "7"
-      checkout main
-      merge featureA id: "merge A" tag: "R/1" type: REVERSE
-      checkout featureB
-      commit id: "8"
-      checkout main
-      branch hotfix
-      commit id: "9"
-      checkout main
-      merge hotfix id: "merge hotfix" tag: "R/1.1" type: REVERSE
-      checkout featureB
-      commit id: "10"
-      checkout main
-      merge featureB id: "merge B" tag: "R/2" type: REVERSE
+Local & Global configuration
+
+```sh
+git config --global user.name "$Full_Name"
+git config --global --add user.useConfigOnly true
+git config --global --unset-all user.email
+# Ignore file mode changes
+git config --global core.fileMode false
+# Set default editor
+git config --global core.editor "code -w"
+git config --global core.editor "code --wait"
+git config --global merge.tool vscode
+git config --global mergetool.vscode.cmd 'code --wait $MERGED'
+git config --global diff.tool vscode
+git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
+# Set default branch name
+git config --global init.defaultBranch main
+# Edit global config
+git config --global -e
 ```
 
 ---
@@ -216,7 +190,7 @@ git add *.md
 
 <br/>
 
-### Parital Staging
+#### Parital Staging
 
 ```sh
 git add -p $file
@@ -224,8 +198,11 @@ git add -p $file
 
 - `y` - stage this hunk
 - `n` - do not stage this hunk
-- `q` - quit; do not stage this hunk or any of the remaining ones
 - `e` - manually edit the current hunk
+
+<br/>
+
+> __.gitignore__ file to ignore files and directories. __.gitkeep__ to keep empty directories.
 
 ---
 
@@ -260,6 +237,47 @@ git commit --amend --author="Majed Al-Chatti <malchatti@aus.edu>" --no-edit
 
 > Check out [git revert](https://git-scm.com/docs/git-revert) for undoing changes without rewriting history
 
+
+---
+
+# Git Branching
+
+```mermaid
+%%{init: { 'logLevel': 'debug', 'theme': 'default' , 'themeVariables': {
+        'git3': 'red'
+  } } }%%
+    gitGraph
+      commit id: "1"
+      commit id: "2"
+      branch featureA
+      checkout featureA
+      commit id: "3"
+      checkout main
+      commit id: "4"
+      checkout featureA
+      branch featureB
+      checkout featureB
+      commit id: "5"
+      checkout main
+      commit id: "6"
+      checkout featureA
+      commit id: "7"
+      checkout main
+      merge featureA id: "merge A" tag: "R/1" type: REVERSE
+      checkout featureB
+      commit id: "8"
+      checkout main
+      branch hotfix
+      commit id: "9"
+      checkout main
+      merge hotfix id: "merge hotfix" tag: "R/1.1" type: REVERSE
+      checkout featureB
+      commit id: "10"
+      checkout main
+      merge featureB id: "merge B" tag: "R/2" type: REVERSE
+```
+
+
 ---
 
 # git branch
@@ -284,20 +302,41 @@ git branch -r
 git branch -av
 ```
 
-<br/>
 
-> git switch -c -t $remoteBranchName
+Multiple remotes with same branch name `--track`
+
+```sh
+git switch -c -t $remoteBranchName
+```
 
 
 ---
 
 # git cherry-pick
 
-Apply the changes introduced by some existing commits
+Copies a commit from a branch to another.
 
 ```sh
+# Cherry pick a commit
 git cherry-pick $commitHash
+# Cherry pick with commit
+git cherry-pick $commitHash --no-commit
+# Cherry pick with commit and message
+# keep track of origin to avoid merge conflicts
+git cherry-pick -x $commitHash
 ```
+
+<br/>
+
+### Use Cases
+
+- Deploy a specific commit from one branch to another.
+- Made a commit on the wrong branch.
+- Apply a hot fix without rebasing or mergin.
+
+<br/>
+
+> ⚠️ Can cause duplicate commits if the commit is already in the branch.
 
 ---
 
@@ -344,6 +383,39 @@ git checkout $tagName
 
 > check [git checkout](https://git-scm.com/docs/git-checkout) for more options
 
+
+---
+
+# Azure Pull Requests with Rebase 1/2
+
+### Merge (no fast-forward)
+
+Running `git merge`, default strategy. All the individual commits in the pull request branch are preserved as-is, and a new merge commit is created to unite them.
+
+![Merge](/images/merge-1.gif)
+
+### Rebase
+
+Take each individual commit and cherry-pick them onto the master branch. Running `git rebase master` on current branch and followed by `git merge pr --ff-only` on the master branch.
+
+![Rebase](/images/rebase-1.gif)
+
+---
+
+# Azure Pull Requests with Rebase 2/2
+
+### Squash commit
+
+Squashing will take the tree that’s produced in a merge and creates a single new commit with those repository contents. It emulates running `git merge --squash` from the master branch.
+
+![Squash](/images/squash-1.gif)
+
+### Semi-linear Merge
+
+A mix of rebase and a merge, running `git rebase master` on the pull request branch, followed by `git merge pr --no-ff` on the master branch.
+
+![Semilinear Merge](/images/semilinear-1.gif)
+
 ---
 
 # git merge
@@ -377,13 +449,16 @@ git rebase [--continue|--skip|--abort]
 
 # git rebase
 
-Reapply commits on top of another base tip
+Reapply commits on top of another base tip.<br/>
+⚠️ Changes History; don't use on public/co-developed branches.
 
 ```sh
-# Rebase the current branch on top of the master branch
-git rebase master
+# Rebase the current branch on top of a branch
+git rebase $baseBranch
 # Rebase the current branch on top of the master branch and interactively
-git rebase -i master
+git rebase -i $baseBranch
+# Rebase from root
+git rebase -i --root
 # During rebase
 git rebase [--continue|--skip|--abort]
 ```
@@ -394,36 +469,13 @@ git rebase [--continue|--skip|--abort]
 
 ```sh
 # Favour current branch
-git rebase -Xtheirs $other_branch
+git rebase -Xtheirs $otherBranch
 # favour other branch
-git rebase -Xours $other_branch
+git rebase -Xours $otherBranch
 # Checkout files in conflict
 git checkout --[thiers|ours] .
 git checkout --[thiers|ours] $pathfilename
 ```
-
----
-
-# git remote
-
-```sh
-# Show remote URLs
-git remote -v
-# Add a new remote
-git remote add $remoteName $remoteUrl
-# Remove a remote
-git remote remove $remoteName
-# Rename a remote
-git remote rename $oldName $newName
-# set a remote URL
-git remote set-url $remoteName $remoteUrl
-```
-
-<br/>
-
-> *origin* is the default remote name <br/>
-> *upstream* is the default remote name for forked repositories
-
 
 ---
 
@@ -476,49 +528,243 @@ git stash save "message"
 ```
 
 ---
+layout: two-cols
+---
 
-# Azure Pull Requests with Rebase 1/2
+# git remote
 
-### Merge (no fast-forward)
+Remote repository management
 
-Running `git merge`, default strategy. All the individual commits in the pull request branch are preserved as-is, and a new merge commit is created to unite them.
+```sh
+# Show remote URLs
+git remote -v
+# Add a new remote
+git remote add $remoteName $remoteUrl
+# Remove a remote
+git remote remove $remoteName
+# Rename a remote
+git remote rename $oldName $newName
+# set a remote URL
+git remote set-url $remoteName $remoteUrl
+```
 
-![Merge](/images/merge-1.gif)
+<br/>
 
-### Rebase
+> __origin__ is the default remote name <br/>
+> __upstream__ is the default remote name for forked repositories
 
-Take each individual commit and cherry-pick them onto the master branch. Running `git rebase master` on current branch and followed by `git merge pr --ff-only` on the master branch.
+::right::
 
-![Rebase](/images/rebase-1.gif)
+<br/>
+
+![Remote](http://jlord.us/git-it/assets/imgs/clone.png)
+<sub style="display:block; text-align:right; margin-top:1em">http://jlord.us/git-it/</sub>
 
 ---
 
-# Azure Pull Requests with Rebase 2/2
+# git push
 
-### Squash commit
+Update remote refs along with associated objects
 
-Squashing will take the tree that’s produced in a merge and creates a single new commit with those repository contents. It emulates running `git merge --squash` from the master branch.
+```sh
+# Push current branch to a remote
+git push $remoteName
+# Push to a remote and set upstream
+git push -u $remoteName $branchName
+# Delete a remote branch
+git push $remoteName :$branchName
+git push -d $remoteName $branchName
+# Push all tags
+git push --tags
+# Push a tag
+git push $remoteName $tagName
+# Delete a tag
+git push $remoteName :refs/tags/$tagName
+```
 
-![Squash](/images/squash-1.gif)
+⚠️⚠️⚠️ **Becareful with force push** ⚠️⚠️⚠️
+```sh
+# Force push to overwrite remote branch
+git push $remoteName --force-with-lease
+```
 
-### Semi-linear Merge
+> ⚠️⚠️⚠️⚠️⚠️⚠️ Don't use `--force` ⚠️⚠️⚠️⚠️⚠️⚠️
 
-A mix of rebase and a merge, running `git rebase master` on the pull request branch, followed by `git merge pr --no-ff` on the master branch.
+---
 
-![Semilinear Merge](/images/semilinear-1.gif)
+# git clone
 
+Clone a repository into a new directory
+
+```sh
+# Clone a repo
+git clone $remoteUrl
+# Clone a repo with a directory name
+git clone $remoteUrl $directoryName
+# Shalllow clone
+git clone --depth 1 $remoteUrl
+# Exact copy of a repo
+git clone --mirror $remoteUrl
+```
+
+---
+
+# git fetch
+
+Update local refs along with associated objects
+
+```sh
+# Fetch a remote
+git fetch $remoteName
+# Fetch a remote and prune
+git fetch -p $remoteName
+# Fetch all remotes
+git fetch --all
+# fetch and updated other branche
+git fetch $remoteName $branchName:$branchName
+```
+
+---
+
+# git clean
+
+Remove untracked files from the working tree
+
+```sh
+# Dry Run
+git clean -n
+# Delete files
+git clean -f
+# Remove everything not tracked by git
+git clean -xdf
+```
+
+---
+
+# git submodule
+
+Add another git repository into a subdirectory
+
+```sh
+# Add a submodule
+git submodule add $submoduleRemoteUrl $submodulePath
+# Update all submodules recursively
+git submodule update --init --recursive
+# clone a repo with submodules
+git clone --recurse-submodules $remoteUrl
+```
+
+<br/>
+
+> __submodule__ is git repo inside another git repo <br/>
+> switching branching will not switch submodules you will need to update them manually
+
+<br/>
+
+- 📦 External Library
+- 🌐 Full Stack App ( Front & Backend)
+- 🫧 Microservices
+- 💄 Theme
+- 📚 Documentation
+
+---
+
+# git worktree
+
+Checkout multiple branches at the same time in different directories
+
+```sh
+# Add a worktree
+git worktree add $worktreePath $branchName
+# List all worktrees
+git worktree list
+# Remove a worktree
+git worktree remove $worktreePath
+# Prune worktrees
+git worktree prune
+# Add Command
+git worktree add --track -b $branch $path $remote/$branch
+```
+
+---
+
+# 📃 Rewrite History (Conventional Commits)
+
+
+[Conventional Commits](https://www.conventionalcommits.org)
+
+```sh
+# Amend starting from a commit
+git rebase -i $commitHash
+# `r` change commit message,
+# `s` to squash ,
+# `f` to fixup squash with no message change
+# `d` to drop the commit
+# `e` to edit
+# on `e` reset the changes
+git reset HEAD^
+# Stage files
+git add $file
+# Commit
+git commit -m $message
+# Continue
+git rebase --continue
+```
+
+```json
+"conventionalCommits.autoCommit": false,
+"conventionalCommits.showEditor": true,
+"conventionalCommits.emojiFormat": "emoji",
+```
+
+---
+
+# 📃 Multiple remotes
+
+<br/>
+
+1. Create an empty repo on github.
+1. Create an empty repo on gitlab.
+1. On local repo add the remotes.
+
+<br/>
+
+```sh
+git remote add github $githubUrl
+git remote add gitlab $gitlabUrl
+git push $remote --all --tags
+# OR
+git push $remote --mirror
+```
+
+<br/>
+
+> add remote __origin__ with any URL
+
+---
+
+# 📃 Group exercise
+
+1. Clone workshop repo
+1. Create a new branch `dev/githubUserName`
+1. Pick a Programming language and create `about.md` file and `frameworks.md` file
+1. Push your changes
+1. Create a `languageName` folder and move your files into it using `git mv $filePath $newPath`
+1. Create a pull request to `languageName` branch and merge it with others, if you are the first `push`.
 
 ---
 layout: image-left
 image: ./images/yancy-min-842ofHC6MaI-unsplash.jpg
 ---
 
-# Resources & References
+# References
 
 <br/>
 
-- [Git](https://git-scm.com/docs)
+- [Git Documentation](https://git-scm.com/docs)
+- [Conventional Commits](https://www.conventionalcommits.org)
 - [Pull Requests with Rebase, Edward Thomson](https://devblogs.microsoft.com/devops/pull-requests-with-rebase/)
+- [Git-it](http://jlord.us/git-it/)
 - [Slidev](https://sli.dev)
 - [@slidev/theme-default](https://github.com/slidevjs/themes/tree/main/packages/theme-default)
 
