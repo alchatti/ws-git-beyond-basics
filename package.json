@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "npm run dev",
-    "build": "slidev build",
+    "build": "slidev build --base /ws-git-beyond-basics",
     "dev": "slidev --open",
     "export": "slidev export"
   },
