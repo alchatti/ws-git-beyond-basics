@@ -1,4 +1,12 @@
-# Welcome to [Slidev](https://github.com/slidevjs/slidev)!
+# Git beyone the basics - workshop
+
+Source slides using [Slidev](https://sli.dev/).
+
+## Sessions
+
+1. December 11th, 2022: CodersHQ
+
+## Quick start
 
 To start the slide show:
 
@@ -9,3 +17,11 @@ To start the slide show:
 Edit the [slides.md](./slides.md) to see the changes.
 
 Learn more about Slidev on [documentations](https://sli.dev/).
+
+## Change log
+
+- **2023-03-03**
+	- Added CodersHq logo & site QR code
+
+- **2022-12-11**
+	- Initial version
