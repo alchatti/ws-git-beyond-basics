@@ -30,6 +30,8 @@ hideInToc: true
   Majed Al-Chatti
 </div>
 
+<img src="/images/codershq-logo.png" style="width:150px;position:absolute;top: 1em;right:1em"/>
+
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
 -->
@@ -60,6 +62,10 @@ Solution Architect for Web & Mobile, experienced in Web Security, DevOps, and Di
 [<mdi-github /> alchatti](https://github.com/alchatti/) | [<mdi-linkedin /> alchatti](https://www.linkedin.com/in/alchatti/) | [<mdi-twitter />  alchatti](https://twitter.com/alchatti) | [<mdi-web /> alchatti.com](https://alchatti.com)
 
 <img style="position:fixed; top:4em; right:2em; border-radius:50%" src="https://avatars.githubusercontent.com/u/9209306?v=4"/>
+
+<a style="width:150px;position:fixed; bottom:2em; right:3.5em;border:none" href="https://www.alchatti.com" target="_blank" title="alchatti.com">
+  <img  src="images/alchatti.png"/>
+</a>
 
 <!--
 You can have `style` tag in markdown to override the style for the current page.
