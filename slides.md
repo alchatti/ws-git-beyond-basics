@@ -64,7 +64,7 @@ Solution Architect for Web & Mobile, experienced in Web Security, DevOps, and Di
 <img style="position:fixed; top:4em; right:2em; border-radius:50%" src="https://avatars.githubusercontent.com/u/9209306?v=4"/>
 
 <a style="width:150px;position:fixed; bottom:2em; right:3.5em;border:none" href="https://www.alchatti.com" target="_blank" title="alchatti.com">
-  <img  src="images/alchatti.png"/>
+  <img src="/images/alchatti.png"/>
 </a>
 
 <!--
