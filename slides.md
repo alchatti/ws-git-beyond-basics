@@ -16,7 +16,7 @@ info: |
 title: Git Beyond the Basics
 author: Majed Al-Chatti
 authorUrl: alchatti.com
-background: ./images/yancy-min-842ofHC6MaI-unsplash.jpg
+background: yancy-min-842ofHC6MaI-unsplash.jpg
 drawings:
   persist: false
 css: unocss
@@ -789,7 +789,7 @@ git push $remote --mirror
 
 ---
 layout: image-left
-image: ./images/yancy-min-842ofHC6MaI-unsplash.jpg
+image: yancy-min-842ofHC6MaI-unsplash.jpg
 ---
 
 # References
