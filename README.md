@@ -1,4 +1,4 @@
-# Git beyone the basics - workshop
+# Git beyoned the basics - workshop
 
 Slides for the workshop "Git beyone the basics" at CodersHQ.
 
